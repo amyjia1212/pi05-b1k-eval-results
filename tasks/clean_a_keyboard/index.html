@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clean_a_keyboard eval &mdash; pi0.5 B1K</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --border: #e3e3e0; --accent: #2563eb; --good: #16a34a; --bad: #dc2626;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15161a; --card:#1d1f26; --text:#e8e8e6; --muted:#9a9a9a; --border:#2c2e37; --accent:#5b8def; --good:#4ade80; --bad:#f87171; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 20px 80px; }
+  a.back { color: var(--muted); text-decoration:none; font-size:0.9rem; }
+  h1 { font-size: 1.5rem; margin: 8px 0 4px; }
+  .sub { color: var(--muted); margin-top: 0; font-size: 0.92rem; }
+  .stats { display:flex; gap:14px; flex-wrap:wrap; margin: 20px 0; }
+  .stat { background: var(--card); border:1px solid var(--border); border-radius: 10px; padding: 14px 20px; min-width:120px; }
+  .stat .n { font-size: 1.5rem; font-weight:700; }
+  .stat .l { color: var(--muted); font-size: 0.8rem; }
+  .stat .n.bad { color: var(--bad); }
+  table { width:100%; border-collapse: collapse; background: var(--card); border:1px solid var(--border); border-radius: 10px; overflow:hidden; }
+  th, td { text-align:left; padding: 9px 12px; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+  th { color: var(--muted); font-weight:600; background: rgba(128,128,128,0.06); }
+  tr:last-child td { border-bottom: none; }
+  .fail { color: var(--bad); font-weight:600; }
+  .ok { color: var(--good); font-weight:600; }
+  details { margin-top: 3px; }
+  summary { cursor:pointer; color: var(--accent); font-size: 0.85rem; }
+  video { max-width: 360px; display:block; margin-top: 6px; border-radius: 6px; }
+  footer { color: var(--muted); font-size: 0.82rem; margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../">&larr; all tasks</a>
+  <h1>clean_a_keyboard</h1>
+  <p class="sub">Checkpoint <code>pi05_b1k_clean_a_keyboard/clean_a_keyboard/29999</code> &middot; public_test split, instances 301&ndash;320 &middot; seed 0 &middot; robot r1pro</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n bad">0 / 20</div><div class="l">episodes succeeded</div></div>
+    <div class="stat"><div class="n">0.0</div><div class="l">mean q_score</div></div>
+    <div class="stat"><div class="n">0.667</div><div class="l">normalized_time (every episode)</div></div>
+  </div>
+
+  <p class="sub"><strong>Every one of the 20 episodes timed out</strong> (ran to the ~5,815-step cap, 1.5&times; mean human-demo length) without completing the task &mdash; this checkpoint has a 0% success rate on this task's public test split. Kept here as the baseline the joint 90/93/96 fine-tune needs to beat.</p>
+
+  <table>
+    <thead><tr><th>instance</th><th>result</th><th>q_score</th><th>sim steps</th><th>norm. time</th><th></th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <footer>Raw per-episode JSON in <code>../../b1k_eval_raw/clean_a_keyboard/json/</code> (not shown here). Videos loaded on demand below each row.</footer>
+</div>
+<script>
+fetch('results.json').then(r => r.json()).then(data => {
+  const tbody = document.getElementById('rows');
+  for (const row of data.rows) {
+    const tr = document.createElement('tr');
+    const videoPath = `videos/clean_a_keyboard_${row.instance_id}_0.mp4`;
+    tr.innerHTML = `
+      <td>${row.instance_id}</td>
+      <td class="${row.success ? 'ok' : 'fail'}">${row.success ? 'success' : 'fail'}</td>
+      <td>${row.q_score.toFixed(3)}</td>
+      <td>${row.steps}</td>
+      <td>${row.normalized_time.toFixed(3)}</td>
+      <td><details><summary>video</summary><video controls preload="none" src="${videoPath}"></video></details></td>
+    `;
+    tbody.appendChild(tr);
+  }
+});
+</script>
+</body>
+</html>

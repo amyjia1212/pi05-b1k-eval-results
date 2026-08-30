@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pi0.5 BEHAVIOR-1K Eval Results</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --text: #1a1a1a; --muted: #666;
+    --border: #e3e3e0; --accent: #2563eb; --good: #16a34a; --bad: #dc2626;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15161a; --card:#1d1f26; --text:#e8e8e6; --muted:#9a9a9a; --border:#2c2e37; --accent:#5b8def; --good:#4ade80; --bad:#f87171; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  .sub { color: var(--muted); margin-top: 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; }
+  .card h2 { margin-top: 0; font-size: 1.15rem; }
+  img { max-width: 100%; border-radius: 8px; display:block; }
+  table { width:100%; border-collapse: collapse; margin-top: 12px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  th { color: var(--muted); font-weight: 600; }
+  a.task-row { display:flex; justify-content:space-between; align-items:center; padding: 14px 0; text-decoration:none; color:inherit; border-bottom: 1px solid var(--border); }
+  a.task-row:last-child { border-bottom: none; }
+  a.task-row:hover { color: var(--accent); }
+  .task-name { font-weight: 600; }
+  .badge { font-size: 0.85rem; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+  .badge.pending { background: rgba(148,163,184,0.15); color: var(--muted); }
+  .badge.done { background: rgba(37,99,235,0.12); color: var(--accent); }
+  .stat-bad { color: var(--bad); font-weight: 700; }
+  footer { color: var(--muted); font-size: 0.82rem; margin-top: 40px; text-align:center; }
+  code { background: rgba(128,128,128,0.15); padding: 1px 6px; border-radius: 4px; font-size: 0.88em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>pi0.5 BEHAVIOR-1K Eval Results</h1>
+  <p class="sub">Training progress and per-task eval rollouts for the pi0.5 B1K fine-tunes.</p>
+
+  <div class="card">
+    <h2>Training progress &mdash; <code>pi05_b1k_joint_90_93_96</code></h2>
+    <img src="training_progress_joint_90_93_96.png" alt="training loss and grad norm curves">
+    <p class="sub">Regenerated from the training log as the run progresses. Currently training on a single L40S, checkpointing every 2,000 steps.</p>
+  </div>
+
+  <div class="card">
+    <h2>Tasks</h2>
+    <a class="task-row" href="tasks/clean_a_keyboard/">
+      <span class="task-name">clean_a_keyboard</span>
+      <span><span class="stat-bad">0 / 20 success</span> &middot; <span class="badge done">public_test eval complete</span></span>
+    </a>
+    <a class="task-row" href="tasks/joint_90_93_96/" style="opacity:0.6; pointer-events:none;">
+      <span class="task-name">joint_90_93_96 (composting_waste / clean_a_keyboard / cook_broccolini)</span>
+      <span class="badge pending">training in progress &mdash; eval pending</span>
+    </a>
+  </div>
+
+  <footer>Source: <code>openpi/scripts/b1k</code> + <code>BEHAVIOR-1K/OmniGibson/omnigibson/eval</code>. Updated by hand after each eval run.</footer>
+</div>
+</body>
+</html>

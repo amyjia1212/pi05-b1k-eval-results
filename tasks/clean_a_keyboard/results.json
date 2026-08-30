@@ -1,0 +1,151 @@
+{
+  "task": "clean_a_keyboard",
+  "checkpoint": "pi05_b1k_clean_a_keyboard/clean_a_keyboard/29999",
+  "mode": "public_test",
+  "n_instances": 20,
+  "n_success": 0,
+  "success_rate": 0.0,
+  "mean_q_score": 0.0,
+  "rows": [
+    {
+      "instance_id": 301,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 302,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 303,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 304,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 305,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 306,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 307,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 308,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 309,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 310,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 311,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 312,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 313,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 314,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 315,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 316,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 317,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 318,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 319,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    },
+    {
+      "instance_id": 320,
+      "success": false,
+      "q_score": 0.0,
+      "steps": 5815,
+      "normalized_time": 0.667
+    }
+  ]
+}
